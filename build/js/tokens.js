@@ -1,10 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Tue, 25 Jul 2023 20:56:31 GMT
+ * Generated on Tue, 25 Jul 2023 22:35:57 GMT
  */
 
 module.exports = {
   "ColorWhite": "#ffffff",
+  "ColorPurple400": "#a182ea",
   "ColorPurple500": "#8257e6",
   "ColorGray200": "#c1c1c4",
   "ColorGray500": "#50505c",
