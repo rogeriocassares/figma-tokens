@@ -1,9 +1,12 @@
 /**
  * Do not edit directly
- * Generated on Tue, 25 Jul 2023 22:35:57 GMT
+ * Generated on Wed, 26 Jul 2023 00:36:39 GMT
  */
 
 :root {
+  --sizes-2: 8;
+  --sizes-4: 16;
+  --sizes-8: 32;
   --color-white: #ffffff;
   --color-purple-400: #a182ea;
   --color-purple-500: #8257e6;
@@ -11,5 +14,17 @@
   --color-gray-500: #50505c;
   --color-gray-800: #1c1c1f;
   --color-gray-900: #121214;
+  --font-label: [object Object];
   --effect-shadow-md: [object Object];
+  --typography-label-font-size: 16;
+  --typography-label-text-decoration: none;
+  --typography-label-font-family: Red Hat Display;
+  --typography-label-font-weight: 400;
+  --typography-label-font-style: normal;
+  --typography-label-font-stretch: normal;
+  --typography-label-letter-spacing: 0;
+  --typography-label-line-height: 19.2;
+  --typography-label-paragraph-indent: 0;
+  --typography-label-paragraph-spacing: 0;
+  --typography-label-text-case: none;
 }
