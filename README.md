@@ -1,184 +1,230 @@
-# TODO
-github action to publish to npm
+# figma-tokens
 
-# Basic Style Dictionary
-
-This example code is bare-bones to show you what this framework can do. If you have the style-dictionary module installed globally, you can `cd` into this directory and run:
+Create a node project
 ```bash
-style-dictionary build
+npm init -y
 ```
 
-You should see something like this output:
-```
-Copying starter files...
-
-Source style dictionary starter files created!
-
-Running `style-dictionary build` for the first time to generate build artifacts.
-
-
-scss
-✔︎  build/scss/_variables.scss
-
-android
-✔︎  build/android/font_dimens.xml
-✔︎  build/android/colors.xml
-
-compose
-✔︎ build/compose/StyleDictionaryColor.kt
-✔︎ build/compose/StyleDictionarySize.kt
-
-ios
-✔︎  build/ios/StyleDictionaryColor.h
-✔︎  build/ios/StyleDictionaryColor.m
-✔︎  build/ios/StyleDictionarySize.h
-✔︎  build/ios/StyleDictionarySize.m
-
-ios-swift
-✔︎  build/ios-swift/StyleDictionary.swift
-
-ios-swift-separate-enums
-✔︎  build/ios-swift/StyleDictionaryColor.swift
-✔︎  build/ios-swift/StyleDictionarySize.swift
+Install style-dictionary
+```bash
+npm i style-dictionary
 ```
 
-Good for you! You have now built your first style dictionary! Moving on, take a look at what we have built. This should have created a build directory and it should look like this:
-```
-├── README.md
-├── config.json
-├── tokens/
-│   ├── color/
-│       ├── base.json
-│       ├── font.json
-│   ├── size/
-│       ├── font.json
-├── build/
-│   ├── android/
-│      ├── font_dimens.xml
-│      ├── colors.xml
-│   ├── compose/
-│      ├── StyleDictionaryColor.kt
-│      ├── StyleDictionarySize.kt
-│   ├── scss/
-│      ├── _variables.scss
-│   ├── ios/
-│      ├── StyleDictionaryColor.h
-│      ├── StyleDictionaryColor.m
-│      ├── StyleDictionarySize.h
-│      ├── StyleDictionarySize.m
-│   ├── ios-swift/
-│      ├── StyleDictionary.swift
-│      ├── StyleDictionaryColor.swift
-│      ├── StyleDictionarySize.swift
+Execute `style-dictionary` basic
+```bash
+npx style-dictionary init basic
 ```
 
-If you open `config.json` you will see there are 5 platforms defined: scss, android, compose, ios, and ios-swift. Each platform has a transformGroup, buildPath, and files. The buildPath and files of the platform should match up to the files what were built. The files built should look like these:
-
-**Android**
-```xml
-<!-- font_dimens.xml -->
-<resources>
-  <dimen name="size_font_small">12.00sp</dimen>
-  <dimen name="size_font_medium">16.00sp</dimen>
-  <dimen name="size_font_large">32.00sp</dimen>
-  <dimen name="size_font_base">16.00sp</dimen>
-</resources>
-
-<!-- colors.xml -->
-<resources>
-  <color name="color_base_gray_light">#ffcccccc</color>
-  <color name="color_base_gray_medium">#ff999999</color>
-  <color name="color_base_gray_dark">#ff111111</color>
-  <color name="color_base_red">#ffff0000</color>
-  <color name="color_base_green">#ff00ff00</color>
-  <color name="color_font_base">#ffff0000</color>
-  <color name="color_font_secondary">#ff00ff00</color>
-  <color name="color_font_tertiary">#ffcccccc</color>
-</resources>
+Modify `package.json` to build `style-dictionary`
+```bash
+...
+"scripts": {
+    "build": "style-dictionary build"
+  },
+...
 ```
 
-**Compose**
-```kotlin
-object StyleDictionaryColor {
-  val colorBaseGrayDark = Color(0xff111111)
-  val colorBaseGrayLight = Color(0xffcccccc)
-  val colorBaseGrayMedium = Color(0xff999999)
-  val colorBaseGreen = Color(0xff00ff00)
-  val colorBaseRed = Color(0xffff0000)
-  val colorFontBase = Color(0xffff0000)
-  val colorFontSecondary = Color(0xff00ff00)
-  val colorFontTertiary = Color(0xffcccccc)
+In Figma, click in `Plugins` -> `Design Token` -> `Export Design Token File` -> `Save & Export`.
+
+Then, rename as `token.js` and insert as token.json in `/input/token.json` 
+```bash
+{
+  "color": {
+    "white": {
+      "description": "",
+      "type": "color",
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:4e7c9cf8df57bdd05846024940cd0af4cb141436,",
+          "exportKey": "color"
+        }
+      }
+    },
+    "purple": {
+      "500": {
+        "description": "",
+        "type": "color",
+        "value": "#8257e6ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:c87e728900e6f6e7ca21f6b05dc941252f0d1162,",
+            "exportKey": "color"
+          }
+        }
+      }
+    },
+    "gray": {
+      "200": {
+        "description": "",
+        "type": "color",
+        "value": "#c1c1c4ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:877ce7d25f2350925195cba43eb4c4bea457fa46,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "500": {
+        "description": "",
+        "type": "color",
+        "value": "#50505cff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:e3ba9ad5240451b441c5e9ce4617e5cea5bee249,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "800": {
+        "description": "",
+        "type": "color",
+        "value": "#1c1c1fff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:8df1f27acc69b9dfa629c364632f5c6ca07d6634,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "900": {
+        "description": "",
+        "type": "color",
+        "value": "#121214ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:d2fa0f28094afe9f8274071589ab22306c90e89b,",
+            "exportKey": "color"
+          }
+        }
+      }
+    }
+  },
+  "effect": {
+    "shadow": {
+      "md": {
+        "description": null,
+        "type": "custom-shadow",
+        "value": {
+          "shadowType": "dropShadow",
+          "radius": 4,
+          "color": "#ffffff1a",
+          "offsetX": 0,
+          "offsetY": 2,
+          "spread": 0
+        },
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:f887c123386839ef6380cafd527642edc90814e2,",
+            "exportKey": "effect"
+          }
+        }
+      }
+    }
+  }
 }
-
-object StyleDictionarySize {
-  /** the base size of the font */
-  val sizeFontBase = 16.00.sp
-  /** the large size of the font */
-  val sizeFontLarge = 32.00.sp
-  /** the medium size of the font */
-  val sizeFontMedium = 16.00.sp
-  /** the small size of the font */
-  val sizeFontSmall = 12.00.sp
+```
+In `config.json`, modify the format to achieve the desired format:
+```bash
+{
+  "source": ["input/**/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "build/css/",
+      "files": [{
+        "destination": "variables.css",
+        "format": "css/variables"
+      }]
+    },
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "build/js/",
+      "files": [{
+        "destination": "tokens.js",
+        "format": "javascript/module-flat"
+      }]
+    }
+  }
 }
 ```
 
-**SCSS**
-```scss
-// variables.scss
-$color-base-gray-light: #cccccc;
-$color-base-gray-medium: #999999;
-$color-base-gray-dark: #111111;
-$color-base-red: #ff0000;
-$color-base-green: #00ff00;
-$color-font-base: #ff0000;
-$color-font-secondary: #00ff00;
-$color-font-tertiary: #cccccc;
-$size-font-small: 0.75rem;
-$size-font-medium: 1rem;
-$size-font-large: 2rem;
-$size-font-base: 1rem;
+Create a `.gitignore` file containing:
+```bash
+node_modules
+input/*.json
 ```
 
-**iOS**
-```objc
-#import "StyleDictionaryColor.h"
+Create a `.gitkeep` file inside `/input`
+```bash
+touch ./input/.gitkeep
+```
+Create a github workflow to achieve Github Action in dispatched event from remote uri
+```yaml
+mkdir -p .github/workflows/
+touch .github/workflows/update-tokens.yaml
+```
+In `.github/workflows/update-tokens.yaml`:
+```bash
+name: Generate design tokens
 
-@implementation StyleDictionaryColor
+on:
+  repository_dispatch:
+    types: update-tokens
 
-+ (UIColor *)color:(StyleDictionaryColorName)colorEnum{
-  return [[self values] objectAtIndex:colorEnum];
-}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-+ (NSArray *)values {
-  static NSArray* colorArray;
-  static dispatch_once_t onceToken;
+      - name: Create input JSON
+        id: create-json
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: ${{ github.event.client_payload.filename }}
+          json: ${{ github.event.client_payload.tokens }}
+          dir: 'input'
 
-  dispatch_once(&onceToken, ^{
-    colorArray = @[
-[UIColor colorWithRed:0.800f green:0.800f blue:0.800f alpha:1.000f],
-[UIColor colorWithRed:0.600f green:0.600f blue:0.600f alpha:1.000f],
-[UIColor colorWithRed:0.067f green:0.067f blue:0.067f alpha:1.000f],
-[UIColor colorWithRed:1.000f green:0.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.000f green:1.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:1.000f green:0.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.000f green:1.000f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.800f green:0.800f blue:0.800f alpha:1.000f]
-    ];
-  });
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-  return colorArray;
-}
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build
+        run: npm run build
 
-@end
+      - name: Create PR 
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "style: Update design tokens"
+          title: ${{ github.event.client_payload.commitMessage || 'Update design tokens' }}
+          body: "Design tokens have been updated via Figma and need to be reviewed."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'main'
 ```
 
-Pretty nifty! This shows a few things happening:
-1. The build system does a deep merge of all the token JSON files defined in the `source` attribute of `config.json`. This allows you to split up the token JSON files however you want. There are 2 JSON files with `color` as the top level key, but they get merged properly.
-1. The build system resolves references to other design tokens. `{size.font.medium.value}` gets resolved properly.
-1. The build system handles references to token values in other files as well as you can see in `tokens/color/font.json`.
+In Figma, go to `Plugins` -> `Design Token` -> `Send Design Token to Url`. Then configure as follows:
+* Event type: `update-tokens`
+* Server url: `https://api.github.com/repos/rogeriocassares/figma-tokens/dispatches`
+* Accept header: `application/vnd.github.everest-preview+json`
+* Content-Type header: `text/plain;charset=UTF-8`
+* Auth type: `(Github) token`
+* Access token: `GITHUB_TOKEN_HERE`
+* Commit Message: `Update Token`
 
-Now let's make a change and see how that affects things. Open up `tokens/color/base.json` and change `"#111111"` to `"#000000"`. After you make that change, save the file and re-run the build command `style-dictionary build`. Open up the build files and take a look.
+Then `Save & Export` and go to `Github repository` -> `Actions`. See if the PR is automatically generated, the merge it to the `main` branch.
 
-**Huzzah!**
-
-Now go forth and create! Take a look at all the built-in [transforms](https://amzn.github.io/style-dictionary/#/transforms?id=pre-defined-transforms) and [formats](https://amzn.github.io/style-dictionary/#/formats?id=pre-defined-formats).
+# TODO
+github action to publish the Merged PR to npm
